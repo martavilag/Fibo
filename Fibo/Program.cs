@@ -15,8 +15,6 @@ namespace Fibo
             fibonacci.Add(0);
             fibonacci.Add(1);
 
-            int result;
-
             while (i <= number)
             {
                 fibonacci.Add(fibonacci[i - 1] + fibonacci[i - 2]);

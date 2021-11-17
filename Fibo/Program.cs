@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Fibo
 {
@@ -6,12 +8,22 @@ namespace Fibo
     {
         static int Sequence(int number)
         {
-            int a = 0;
-            int b = 1;
-            int i = 0;
-            int final = int.Parse(Console.ReadLine());
+            
+            int i = 2;
 
-            while (int i = 0; i < final; i++) 
+            List <int> fibonacci = new List<int>();
+            fibonacci.Add(0);
+            fibonacci.Add(1);
+
+            int result;
+
+            while (i <= number)
+            {
+                fibonacci.Add(fibonacci[i - 1] + fibonacci[i - 2]);
+                i++;
+            }
+
+            return fibonacci[number];
         }
 
         static void Main(string[] args)

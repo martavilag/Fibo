@@ -16,8 +16,7 @@ namespace Fibo
 
             return number switch
             {
-                0 => 0,
-                1 => 1,
+                1 => 0,
                 2 => 1,
                 _ => Sequence(number - 1) + Sequence(number - 2),
             };

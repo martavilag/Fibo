@@ -10,9 +10,24 @@ namespace Testing
         public void PositiveNumber()
         {
             int actual = Sequence(5);
-            int expected = 5; // adjust 1 number ahead
+            int expected = 3;
 
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void NegativeNumber()
+        {
+            void TestCode()
+            {
+                Sequence(-2);
+            }
+
+            Exception ex = Record.Exception((Action) TestCode);
+
+            Assert.NotNull(ex);
+            Assert.IsType<ArgumentException>(ex);
+        }
+
     }
 }

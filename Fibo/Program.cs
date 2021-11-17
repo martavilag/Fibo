@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Fibo
 {
@@ -8,20 +9,17 @@ namespace Fibo
     {
         static int Sequence(int number)
         {
-            
-            int i = 2;
-
-            List <int> fibonacci = new List<int>();
-            fibonacci.Add(0);
-            fibonacci.Add(1);
-
-            while (i <= number)
+            if (number < 0)
             {
-                fibonacci.Add(fibonacci[i - 1] + fibonacci[i - 2]);
-                i++;
+                throw new ArgumentException("Can't use a negative number.");
             }
 
-            return fibonacci[number];
+            return number switch
+            {
+                0 => 0,
+                1 => 1,
+                _ => Sequence(number - 1) + Sequence(number - 2),
+            };
         }
 
         static void Main(string[] args)

@@ -5,9 +5,9 @@ using System.Runtime.InteropServices.ComTypes;
 
 namespace Fibo
 {
-    class Program
+    public class Program
     {
-        static int Sequence(int number)
+        public static int Sequence(int number)
         {
             if (number < 0)
             {
@@ -18,6 +18,7 @@ namespace Fibo
             {
                 0 => 0,
                 1 => 1,
+                2 => 1,
                 _ => Sequence(number - 1) + Sequence(number - 2),
             };
         }
